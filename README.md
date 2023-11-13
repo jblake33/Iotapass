@@ -12,7 +12,7 @@ This was created as a project for the class SWE6623 - Software Engineering at Ke
 
 <!-- CONTACT -->
 ## Contact Information
-[Report a bug](https://docs.google.com/forms/d/e/1FAIpQLScc82kG16MsyURQJsy-HZq7s0IFG2AD6BU44KGTozJ-BNkpKw/viewform?usp=sf_link)
+[Report a bug](https://forms.gle/9yqkY3rKsKZXMBMH6)
 
 
 <!-- LICENSE -->
