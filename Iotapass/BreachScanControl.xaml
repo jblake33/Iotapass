@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Iotapass.BreachScanControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Iotapass"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="800">
+    <Grid Style="{StaticResource MainGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <!-- First column -->
+        <Label x:Name="StatusMsg" Content="" Grid.Row="0" Grid.Column="0" Style="{StaticResource MainLabelStyle}" HorizontalAlignment="Left"/>
+        <ProgressBar x:Name="ScanProgressBar" Grid.Row="1" Grid.Column="0" Value="0" HorizontalAlignment="Stretch"/>
+        <Label x:Name="PercentageMsg" Content="" Grid.Row="2"  Grid.Column="0" Style="{StaticResource MainLabelStyle}" HorizontalAlignment="Left"/>
+        <!-- Second column -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" >
+            <Button x:Name="CancelBtn" Content="Cancel" Style="{StaticResource MainButtonStyle}" HorizontalAlignment="Left" Margin="3,0,0,0" Click="CancelBtn_Click" Visibility="Collapsed"/>
+            <Button x:Name="RetryScanBtn" Content="Retry" Style="{StaticResource MainButtonStyle}" HorizontalAlignment="Left" Margin="3,0,0,0" Click="RetryScanBtn_Click" Visibility="Collapsed"/>
+            <Button x:Name="SaveReportBtn" Content="Save report..." Style="{StaticResource MainButtonStyle}" HorizontalAlignment="Left" Margin="3,0,0,0" Click="SaveReportBtn_Click" Visibility="Collapsed"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

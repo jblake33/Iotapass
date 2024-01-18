@@ -1,0 +1,7 @@
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\DropdownMenuControl.csproj.AssemblyReference.cache
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\DropdownMenuControl_MarkupCompile.cache
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\DropdownMenuControl_MarkupCompile.lref
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\DropdownMenuControl.dll
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\ref\DropdownMenuControl.dll
+C:\Users\jcb13\source\repos\Iotapass\DropdownMenuControl\obj\Debug\net6.0-windows\DropdownMenuControl.pdb

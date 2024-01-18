@@ -1,0 +1,77 @@
+﻿<Window x:Class="Iotapass.SignInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Iotapass"
+        mc:Ignorable="d"
+        Title="Iotapass - Sign In" Height="450" Width="800" Icon="./Resources/logoLD.png">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!-- Sign in region -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Sign in" Margin="5,0,0,5" FontWeight="SemiBold" />
+        <TextBox x:Name="SignInEmailField" Width="Auto" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label Content="Email" Grid.Row="1" IsHitTestVisible="False" VerticalAlignment="Bottom" FontSize="9" Foreground="Gray"/>
+        <PasswordBox x:Name="SignInPasswordField" Width="Auto" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="SignInPasswordUnmask" Visibility="Hidden"  Width="Auto" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Viewbox x:Name="SignInEye" Grid.Row="2" Grid.Column="1" Margin="10"  HorizontalAlignment="Right" PreviewMouseDown="SignInEye_PreviewMouseDown" PreviewMouseUp="SignInEye_PreviewMouseUp" MouseLeave="SignInEye_MouseLeave">
+            <Grid Background="Transparent">
+                <Path Fill="Gray" Stretch="Uniform" Data="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+            </Grid>
+        </Viewbox>
+        <Label Content="Master password" Grid.Row="2" IsHitTestVisible="False" VerticalAlignment="Bottom" FontSize="9" Foreground="Gray"/>
+        <Button x:Name="ForgotPasswordBtn" Style="{StaticResource SignInBtnStyle}" Content="Forgot your master password?" Grid.Row="3" Grid.Column="0" Margin="5" Click="ForgotPasswordBtn_Click"/>
+        <Button x:Name="SignInBtn" Style="{StaticResource SignInBtnStyle}" Content="Sign in" Grid.Row="3" Grid.Column="1" Margin="5" Click="SignInBtn_Click" IsDefault="True"/>
+        <CheckBox x:Name="RememberMeCheckBox" Content="Remember me" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
+        <TextBlock x:Name="PasswordHintTextBlock" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" TextWrapping="Wrap"/>
+        <StackPanel Background="Gray" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Height="1" VerticalAlignment="Bottom"/>
+        <Label x:Name="SignInErrorMsg" Grid.Column="0" Grid.Row="4" Content="" IsHitTestVisible="False" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <!-- Sign up region -->
+        <Button x:Name="ShowSignUpBtn" Style="{StaticResource SignInBtnStyle}" Content="Sign up" Grid.Row="6" Grid.Column="0"  Margin="5" Click="ShowSignUpBtn_Click" />
+        <TextBox x:Name="SignUpEmailField" Width="Auto" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden"/>
+        <Label x:Name="SignUpEmailLabel" Content="Email" Grid.Row="7" Visibility="Hidden" IsHitTestVisible="False" VerticalAlignment="Bottom" FontSize="9" Foreground="Gray"/>
+        <PasswordBox x:Name="SignUpPasswordField" Width="Auto" Grid.Row="8" Grid.ColumnSpan="2" Visibility="Hidden"/>
+        <TextBox x:Name="SignUpPasswordUnmask" Visibility="Hidden"  Width="Auto" Grid.Row="8" Grid.ColumnSpan="2"/>
+        <Label x:Name="SignUpPasswordLabel" Content="Master password (at least 12 characters)" Grid.Row="8" Visibility="Hidden" IsHitTestVisible="False" VerticalAlignment="Bottom" FontSize="9" Foreground="Gray"/>
+        <Viewbox x:Name="SignUpEye" Grid.Row="8" Grid.Column="1" Margin="10"  HorizontalAlignment="Right" PreviewMouseDown="SignUpEye_PreviewMouseDown"  PreviewMouseUp="SignUpEye_PreviewMouseUp"  MouseLeave="SignUpEye_MouseLeave" Visibility="Hidden">
+            <Grid Background="Transparent">
+                <Path Fill="Gray" Stretch="Uniform" Data="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+            </Grid>
+        </Viewbox>
+        <PasswordBox x:Name="ConfirmPasswordField" Width="Auto" MinWidth="60" Grid.Row="9" Grid.ColumnSpan="2" Visibility="Hidden"/>
+        <TextBox x:Name="SignUpConfirmUnmask" Visibility="Hidden"  Width="Auto" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <Label x:Name="SignUpConfirmLabel" Content="Confirm password" Grid.Row="9" Visibility="Hidden" IsHitTestVisible="False" VerticalAlignment="Bottom" FontSize="9" Foreground="Gray"/>
+        <Button  x:Name="SignUpBtn" Style="{StaticResource SignInBtnStyle}" Content="Sign up" Grid.Row="10" Grid.Column="1" Margin="5" Visibility="Hidden" Click="SignUpBtn_Click" IsDefault="False"/>
+        <Label x:Name="SignUpErrorMsg" Grid.Column="2" Grid.Row="10" Content="" IsHitTestVisible="False" Foreground="Red" Grid.ColumnSpan="2"/>
+        <!-- image region -->
+        <Image Grid.Row="0" Grid.RowSpan="5" Grid.Column="3" Source="./Resources/logoHD.png" VerticalAlignment="Center" Margin="20"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Right">
+            <Button x:Name="AboutButton" Style="{StaticResource SignInBtnStyle}" Content="About Iotapass" Margin="5" Click="AboutButton_Click"/>
+            <Button x:Name="ReportBugButton" Style="{StaticResource SignInBtnStyle}" Content="Report a Bug" Margin="5" Click="ReportBugButton_Click"/>
+        </StackPanel>
+        <TextBlock x:Name="VersionText" Grid.Row="11" Grid.Column="3" HorizontalAlignment="Right" Margin="2"/>
+    </Grid>
+</Window>

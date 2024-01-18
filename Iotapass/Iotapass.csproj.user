@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\jcb13\source\repos\Iotapass\Iotapass\Properties\PublishProfiles\ClickOnceProfile1.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="BreachScanControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GeneratePasswords.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HelpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="IotapassMessageBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PasswordsScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SettingsScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CreateCredForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SignInWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateCredForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateProfileForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="BreachScanControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GeneratePasswords.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HelpWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IotapassMessageBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PasswordsScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SettingsScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateCredForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SignInWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateCredForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateProfileForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

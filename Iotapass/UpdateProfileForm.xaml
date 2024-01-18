@@ -1,0 +1,64 @@
+﻿<Window x:Class="Iotapass.UpdateProfileForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Iotapass"
+        mc:Ignorable="d"
+        Title="Change Account Details" Height="450" Width="800" Icon="./Resources/logoLD.png">
+    <Grid Style="{StaticResource MainGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
+            Type a value in one or more of the boxes, then click <Run FontWeight="Bold">Update</Run> to update your information. <LineBreak/>
+            If you do not want to update a field, simply leave it blank.</TextBlock>
+
+        <Label Style="{StaticResource MainLabelStyle}" Grid.Column="0" Grid.Row="1">Email:</Label>
+        <TextBox  Style="{StaticResource MainTextBoxStyle}" Name="EmailTextBox" Grid.Column="1" Grid.Row="1"/>
+
+        <Label Style="{StaticResource MainLabelStyle}" Grid.Column="0" Grid.Row="2">Master password:</Label>
+        <PasswordBox Style="{StaticResource MainPasswordBoxStyle}" Name="MasterPasswordTextBox" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Style="{StaticResource MainTextBoxStyle}" Name="MasterPasswordUnmask" Grid.Column="1" Grid.Row="2" Visibility="Hidden"/>
+        <Viewbox x:Name="PasswordEye" Grid.Row="2" Grid.Column="1" Stretch="Uniform" Style="{StaticResource ScalingViewboxStyle}" Margin="0,0,10,0" HorizontalAlignment="Right" PreviewMouseDown="PasswordEye_PreviewMouseDown" PreviewMouseUp="PasswordEye_PreviewMouseUp" MouseLeave="PasswordEye_MouseLeave">
+            <Grid Background="Transparent">
+                <Path Fill="Gray" Stretch="Uniform" Data="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+            </Grid>
+        </Viewbox>
+
+        <Label Style="{StaticResource MainLabelStyle}" Grid.Column="0" Grid.Row="3">Hint:</Label>
+        <TextBox Style="{StaticResource MainTextBoxStyle}"  Name="HintTextBox" Grid.Column="1" Grid.Row="3" />
+
+        <Label Style="{StaticResource MainLabelStyle}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,10,0,0">Please re-enter your master password before clicking Update.</Label>
+        <Label Style="{StaticResource MainLabelStyle}" Grid.Column="0" Grid.Row="5">Old master password:</Label>
+        <PasswordBox Style="{StaticResource MainPasswordBoxStyle}" Name="ReenterPasswordBox" Grid.Column="1" Grid.Row="5" />
+        <TextBox Style="{StaticResource MainTextBoxStyle}" Name="ReenterPasswordUnmask" Grid.Column="1" Grid.Row="5" Visibility="Hidden"/>
+        <Viewbox x:Name="ReenterEye" Grid.Row="5" Grid.Column="1" Stretch="Uniform" Style="{StaticResource ScalingViewboxStyle}" Margin="0,0,10,0" HorizontalAlignment="Right" PreviewMouseDown="ReenterEye_PreviewMouseDown" PreviewMouseUp="ReenterEye_PreviewMouseUp" MouseLeave="ReenterEye_MouseLeave">
+            <Grid Background="Transparent">
+                <Path Fill="Gray" Stretch="Uniform" Data="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+            </Grid>
+        </Viewbox>
+
+        <!-- Update or Cancel -->
+        <StackPanel Grid.Column="1"  Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource MainButtonStyle}" Margin="2" Name="updateButton" IsDefault="True" Click="updateButton_Click">Update</Button>
+            <Button Style="{StaticResource MainButtonStyle}" Margin="2" Name="cancelButton" IsCancel="True" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+        <!-- Error message -->
+        <Label x:Name="ErrorMsg" Foreground="{StaticResource WarningBrush}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Content="" IsHitTestVisible="False" Visibility="Hidden"/>
+    </Grid>
+</Window>

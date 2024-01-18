@@ -1,0 +1,184 @@
+﻿<Window x:Class="Iotapass.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Iotapass"
+        mc:Ignorable="d"
+        Title="Iotapass Help" Height="450" Width="800" Icon="./Resources/logoLD.png">
+    <Grid Style="{StaticResource SidebarGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="HelpTabControl" SnapsToDevicePixels="True"
+                    TabStripPlacement="Left" Grid.Column="0" Style="{StaticResource MainControlStyle}">
+            <TabItem x:Name="QuickHelpTab" Style="{StaticResource MainTabItemStyle}">
+                <TabItem.Header>
+                    <TextBlock>Quick Help</TextBlock>
+                </TabItem.Header>
+                <ScrollViewer x:Name="QuickHelpScrollViewer" Style="{StaticResource MainScrollViewerStyle}" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="QuickHelpScrollViewer_PreviewMouseWheel">
+                    <Grid Style="{StaticResource MainGridStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                                <Run FontWeight="Bold">Reset your password</Run>
+                                <LineBreak/> Your password can be reset if you are signed in. Go to <Run FontStyle="Italic">Settings > Change account details</Run> under Account Settings. Here, you can change your account's email, password, and the "Forgot password" hint. You must re-enter your old password to save any changes.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                                <Run FontWeight="Bold">Set a "Forgot password" hint</Run>
+                                <LineBreak/> You can only set your account's hint if you are signed in. Go to <Run FontStyle="Italic">Settings > Change account details</Run> under Account Settings. Here, you can change your account's email, password, and the "Forgot password" hint. You must re-enter your old password to save any changes.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                                <Run FontWeight="Bold">Recover an account</Run>
+                                <LineBreak/> An account can not be recovered if you do not remember the email of the account. If you remember the email of the account, but not the password, you can get the password hint for your account on the sign in screen.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Scan my passwords for security</Run>
+                            <LineBreak/>
+                                To scan your passwords to see if any of them are weak, go to <Run FontStyle="Italic">Settings</Run> and click <Run FontStyle="Italic">Scan for breaches</Run>. You can save a report of the password scan when the scan is complete. Any weak passwords that were found in past data breaches will have an error icon next to them in the <Run FontStyle="Italic">Passwords</Run> screen. The error icon will be cleared once the password has been updated.
+                                <LineBreak/><Run FontWeight="Bold">NOTE:</Run> Any passwords that are less than 8 characters in length are generally considered <Run FontWeight="Bold">weak</Run>.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                                <Run FontWeight="Bold">Set display preferences</Run>
+                                <LineBreak/> Your preferences for display resolution, color theme, and font size can be set in the <Run FontStyle="Italic">Settings</Run> screen. These preferences do not change the preferences of other users.
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem x:Name="HelpPasswordsTab" Style="{StaticResource MainTabItemStyle}">
+                <TabItem.Header>
+                    <TextBlock>Passwords</TextBlock>
+                </TabItem.Header>
+                <ScrollViewer x:Name="PasswordsScrollViewer" Style="{StaticResource MainScrollViewerStyle}" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="PasswordsScrollViewer_PreviewMouseWheel">
+                    <Grid Style="{StaticResource MainGridStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Create a new password</Run>
+                            <LineBreak/> In <Run FontStyle="Italic">Passwords</Run>, you can create a new password to save for a website you visit. Click <Run FontStyle="Italic">New</Run>, then enter in the website, username or email, and password. Notes can optionally be added.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">View a password</Run>
+                            <LineBreak/> Your saved passwords are automatically hidden unless you click the eye icon next to them. You can copy a password to your clipboard by clicking the clipboard icon.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">View my notes for a password</Run>
+                            <LineBreak/> Your notes for a password can be viewed by clicking the <Run FontStyle="Italic">Edit</Run> button next to a password. You can close the <Run FontStyle="Italic">Edit</Run> window without editing the password.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Search my passwords</Run>
+                            <LineBreak/> You can search through your passwords by entering part of the username or website name in the text box next to the <Run FontStyle="Italic">Search</Run> button in the <Run FontStyle="Italic">Passwords</Run> screen. You can either click the  <Run FontStyle="Italic">Search</Run> button or press the  <Run FontStyle="Italic">Enter</Run> key to search. Your searches are not case sensitive. You can clear your search to see all passwords again by clicking the X next to the search box.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">What does Refresh do?</Run>
+                            <LineBreak/> You can click the <Run FontStyle="Italic">Refresh</Run> button in the  <Run FontStyle="Italic">Passwords</Run> screen to refresh the list of passwords that you can see. This does not edit, delete, or create any of your passwords. Refreshing will also clear your search results after you made a search, so you can see all of your passwords listed again.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Are my passwords encrypted?</Run>
+                            <LineBreak/> Your passwords are encrypted and stored locally on your computer. Iotapass is a serverless application, meaning it can not store your passwords anywhere other than on your computer.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Where are my passwords stored?</Run>
+                            <LineBreak/> Your passwords are stored on a local database file on your computer, along with your account's profile and preferences information. Iotapass is a serverless application, meaning any data you store using Iotapass is completely private and local to your computer.
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem x:Name="HelpSettingsTab" Style="{StaticResource MainTabItemStyle}">
+                <TabItem.Header>
+                    <TextBlock>Settings</TextBlock>
+                </TabItem.Header>
+                <ScrollViewer x:Name="SettingsScrollViewer" Style="{StaticResource MainScrollViewerStyle}" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="SettingsScrollViewer_PreviewMouseWheel">
+                    <Grid Style="{StaticResource MainGridStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Scan for breaches</Run>
+                        <LineBreak/> Breaches refer to events where hackers publicly release the personal data of a website's users, including their passwords. If a password has been found in lots of breaches in the past, that password is too common and can be easily guessed.
+                        <LineBreak/>
+                            To scan your passwords to see if they have been found in breaches in the past, go to <Run FontStyle="Italic">Settings</Run> and click <Run FontStyle="Italic">Scan for breaches</Run>. You can save a report of the password scan when the scan is complete. Any passwords that were found in past breaches will have an error icon next to them in the <Run FontStyle="Italic">Passwords</Run> screen. The error icon will be cleared once the password has been updated.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Delete passwords</Run>
+                        <LineBreak/> To delete all of your accounts saved passwords all at once, go to <Run FontStyle="Italic">Settings</Run> and click <Run FontStyle="Italic">Delete all passwords</Run>. By clicking <Run FontStyle="Italic">Confirm</Run>, your passwords will be deleted from Iotapass. This does not affect the passwords on the websites at all.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Set display resolution</Run>
+                        <LineBreak/> You can set your display resolution preference to a preset size by selecting the resolution size from the dropdown. Changes to the display preferences should take effect immediately.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Set color theme</Run>
+                        <LineBreak/> You can set your color theme preference to a light mode, neutral mode, or dark mode by selecting one in <Run FontStyle="Italic">Settings</Run>. Changes to the display preferences should take effect immediately.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Set font size</Run>
+                        <LineBreak/> You can set your font size preference to a small font size, medium font size, or large font size by selecting one in <Run FontStyle="Italic">Settings</Run>. Changes to the display preferences should take effect immediately.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Change account details</Run>
+                        <LineBreak/> You can update your account's email, password, and password hint by clicking on <Run FontStyle="Italic">Settings > Change account details</Run> under Account Settings. Enter the fields: new email, password, and hint in their text boxes. If you do not want to update a field, you can leave the field's text box empty. You must re-enter your old password to confirm your changes.
+                        <LineBreak/>
+                            A hint is not automatically provided to your account when you create it. You have to manually add it using <Run FontStyle="Italic">Change account details</Run>.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Delete my account and data</Run>
+                        <LineBreak/> If you wish to close your account permanently and clear all saved passwords and preferences from Iotapass, you can do so by clicking <Run FontStyle="Italic">Settings > Delete my account and data</Run>. By hitting confirm, your account with Iotapass will be deleted permanently.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">About Iotapass</Run>
+                        <LineBreak/> Clicking the external link for <Run FontStyle="Italic">About Iotapass</Run>, located at <Run FontStyle="Italic">Settings > About Iotapass</Run>, will take you to the project's GitHub page, where you can learn more about the project.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                        <Run FontWeight="Bold">Report a bug</Run>
+                        <LineBreak/> Clicking the external link for <Run FontStyle="Italic">Report a bug</Run>, located at <Run FontStyle="Italic">Settings > About Iotapass</Run>, will take you to the bug report form. You will be asked to sign in with a Google account. You will be asked to provide the version number you are using, what contact info you would like to provide in the event that further details are needed, and some additional information.
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem x:Name="HelpFAQTab" Style="{StaticResource MainTabItemStyle}">
+                <TabItem.Header>
+                    <TextBlock TextWrapping="WrapWithOverflow">FAQs</TextBlock>
+                </TabItem.Header>
+                <ScrollViewer x:Name="FAQScrollViewer" Style="{StaticResource MainScrollViewerStyle}" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="FAQScrollViewer_PreviewMouseWheel">
+                    <Grid Style="{StaticResource MainGridStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">How do I report a bug?</Run>
+                            <LineBreak/> The updated link to the bug report form can be found in the settings. Go to <Run FontStyle="Italic">Settings > Report a bug</Run> under External Links. You will be asked to sign in with a Google account to submit a bug request.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">I can log in on my computer, but I can't log in on another computer?</Run>
+                            <LineBreak/> Your passwords are stored on a local database file on your computer, along with your account's profile and preferences information. Iotapass is a serverless application, meaning any data you store using Iotapass is completely private and local to your computer. As a result, the only way to access any passwords that you saved on a computer is through that computer.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Are my passwords encrypted and safe?</Run>
+                            <LineBreak/> Your passwords are encrypted and stored locally on your computer. Iotapass is a serverless application, meaning it can not store your passwords anywhere other than on your computer.
+                            <LineBreak/> The only way to access your passwords is through your computer. This means that your passwords are safe as long as you don't let other's access your computer.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">How is my data used?</Run>
+                            <LineBreak/> Your data is not used at all. Iotapass is a serverless application, meaning none of your data gets harvested and stored anywhere.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">How do I set my "Forgot password" hint?</Run>
+                            <LineBreak/> You can only set your account's hint if you are signed in. Go to <Run FontStyle="Italic">Settings > Change account details</Run> under Account Settings. Here, you can change your account's email, password, and the "Forgot password" hint. You must re-enter your old password to save any changes.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">What version of Iotapass am I on?</Run>
+                            <LineBreak/> You can find the version number on the sign in screen (bottom right) or the <Run FontStyle="Italic">Settings</Run> screen (bottom left).
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">Is Iotapass free?</Run>
+                            <LineBreak/> Iotapass is free to use, and there is no "premium version". You can learn more about the Iotapass project by visiting the GitHub page, by going to <Run FontStyle="Italic">Settings > About Iotapass</Run> under External Links.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Margin="5,10,10,0">
+                            <Run FontWeight="Bold">How can I contribute to Iotapass?</Run>
+                            <LineBreak/> You can learn more and possibly contribute to the Iotapass project by visiting the GitHub page, by going to <Run FontStyle="Italic">Settings > About Iotapass</Run> under External Links. The latest announcements and any referral links will be available there.
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

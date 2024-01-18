@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Iotapass.SettingsScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Iotapass"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer x:Name="SettingsScrollViewer" Style="{StaticResource MainScrollViewerStyle}" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="SettingsScrollViewer_PreviewMouseWheel">
+        <Grid Style="{StaticResource MainGridStyle}">
+            <StackPanel Orientation="Vertical">
+                <GroupBox Style="{StaticResource MainGroupBoxStyle}" Header="Password settings" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                        Scan your passwords to check if they have been found in any breaches.
+                        <LineBreak/>
+                        Uses data from haveibeenpwned.com
+                    </TextBlock>
+                        <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">
+                        Delete all passwords saved to your account. This can not be undone.
+                        </TextBlock>
+                        <Button x:Name="ScanButton" Style="{StaticResource MainButtonStyle}" Content="Scan for breaches" Click="ScanButton_Click" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="5"/>
+                        <Button x:Name="DeleteAllButton" Style="{StaticResource MainButtonStyle}" Click="DeleteAllButton_Click" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Foreground="White" Background="{StaticResource WarningBrush}" BorderThickness="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Viewbox IsHitTestVisible="False"  Style="{StaticResource ScalingViewboxStyle3}">
+                                    <Path Width="15" Margin="15,0,0,0" Stretch="Uniform" Style="{StaticResource MainIconStyle}" Fill="White" Data="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm302-40q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm-40-120h80v-200h-80v200Zm40-100Z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleX="-1"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                                <TextBlock Margin="-10,0,5,0">Delete all passwords</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <local:BreachScanControl x:Name="MyBreachScanControl" Grid.Row="1" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Collapsed"/>
+                    </Grid>
+            </GroupBox>
+                <GroupBox Header="Display settings" Style="{StaticResource MainGroupBoxStyle}" Margin="5">
+                    <StackPanel Orientation="Vertical" >
+                        <!-- Display res. Binds to Resolution application setting. Format is "600x480" for a 600 width, 480 height window. -->
+                        <StackPanel Orientation="Horizontal">
+                            <Label Style="{StaticResource MainLabelStyle}" Content="Resolution:"/>
+                            <ComboBox Style="{DynamicResource MainComboBoxStyle}" Name="ResolutionDropDown" Text="Set display resolution" HorizontalAlignment="Left" SelectionChanged="ResolutionDropDown_SelectionChanged"/>
+                            <Viewbox x:Name="RefreshIcon" MouseDown="RefreshIcon_MouseDown" Margin="5" Style="{StaticResource ScalingViewboxStyle1}">
+                                <Grid Background="Transparent">
+                                    <Path MaxHeight="15" Style="{StaticResource MainIconStyle}" Stretch="Uniform" Data="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/>
+                                </Grid>
+                            </Viewbox>
+                        </StackPanel>
+                        <!-- Color theme. Binds to ColorMode application setting. 1 = light, 2 = neutral, 3 = dark -->
+                        <StackPanel Orientation="Horizontal">
+                            <Label Style="{StaticResource MainLabelStyle}" Content="Theme:"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="LightMode" Content="Light"  Margin="15,5,0,0" GroupName="ColorModeSelection" Checked="LightMode_Checked" VerticalContentAlignment="Center"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="NeutralMode" Content="Neutral"  Margin="15,5,0,0" GroupName="ColorModeSelection" Checked="NeutralMode_Checked" VerticalContentAlignment="Center"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="DarkMode" Content="Dark" Margin="15,5,0,0" GroupName="ColorModeSelection" Checked="DarkMode_Checked" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <!-- Font size. Binds to FontSize application setting. 1 = small, 2 = normal, 3 = large -->
+                        <StackPanel Orientation="Horizontal">
+                            <Label Style="{StaticResource MainLabelStyle}" Content="Font size:"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="SmallFont" Content="Small" Margin="15,5,0,0" GroupName="FontSizeSelection" Checked="SmallFont_Checked" VerticalContentAlignment="Center"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="MedFont" Content="Medium"  Margin="15,5,0,0" GroupName="FontSizeSelection" Checked="MedFont_Checked" VerticalContentAlignment="Center"/>
+                            <RadioButton Style="{StaticResource MainRadioButtonStyle}" x:Name="LargeFont" Content="Large"  Margin="15,5,0,0" GroupName="FontSizeSelection" Checked="LargeFont_Checked" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Style="{StaticResource MainGroupBoxStyle}" Header="Account settings" Margin="5">
+                    <Grid> 
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                        Update your email, master password, and master password hint here.
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource MainTextBlockStyle}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+                        Delete your Iotapass account, passwords, and preferences. This can not be undone.
+                        </TextBlock>
+                        <Button x:Name="ChangeAccount" Style="{StaticResource MainButtonStyle}" Content="Change account details"  Click="ChangeAccount_Click" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="5"/>
+                        <Button x:Name="DeleteAccButton" Style="{StaticResource MainButtonStyle}" Click="DeleteAccButton_Click" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Foreground="White" Background="{StaticResource WarningBrush}" BorderThickness="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Viewbox IsHitTestVisible="False" Style="{StaticResource ScalingViewboxStyle3}">
+                                    <Path Width="15" Margin="15,0,0,0" Stretch="Uniform" Style="{StaticResource MainIconStyle}" Fill="White" Data="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm302-40q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm-40-120h80v-200h-80v200Zm40-100Z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleX="-1"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                                <TextBlock Margin="-10,0,5,0">Delete my account and data</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+            </GroupBox>
+                <GroupBox Style="{StaticResource MainGroupBoxStyle}" Header="External links" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource MainTextBlockStyle}" Margin="2">Clicking these buttons will open new windows in your internet browser.</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="AboutButton" Style="{StaticResource MainButtonStyle}" Content="About Iotapass" HorizontalAlignment="Left" Margin="10" Click="AboutButton_Click"/>
+                            <Button x:Name="BugReportButton" Style="{StaticResource MainButtonStyle}" Content="Report a Bug" HorizontalAlignment="Left" Margin="10" Click="BugReportButton_Click"/>
+                            <TextBlock Style="{StaticResource MainTextBlockStyle}" VerticalAlignment="Center" FontStyle="Italic">Requires sign in to a Google account</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <TextBlock x:Name="VersionText" Style="{StaticResource MainTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
