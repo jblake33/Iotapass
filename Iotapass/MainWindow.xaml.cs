@@ -102,7 +102,7 @@ namespace Iotapass
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            Application.Current.Shutdown();
+            Environment.Exit(0);
         }
 
         private void SidebarTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
