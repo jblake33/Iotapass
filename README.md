@@ -3,12 +3,16 @@ A free password manager application.
 
 <!-- ABOUT -->
 ## About The Project
-Iotapass is a free-to-use password manager application, designed for desktop computers. You can:
+Iotapass is a free password manager application, designed for desktop computers. You can:
 * Create, read, update, and delete your passwords for websites.
 * Scan your saved passwords to see if they were found in data breaches, using data from the [Pwned Passwords API](https://haveibeenpwned.com/API/v3#PwnedPasswords).
 * Generate ideas for passwords.
 
 This was created as a project for the class SWE6623 - Software Engineering at Kennesaw State University, under the supervision of Prof. Nick Murphy.
+
+<!-- INSTALL -->
+## How to Install
+Visit the [Releases](https://github.com/jblake33/Iotapass/releases) page for the latest version to install, with instructions on how to install.
 
 <!-- CONTACT -->
 ## Contact Information
